@@ -76,9 +76,10 @@ WSGI_APPLICATION = 'my_openshift.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
+        'NAME': 'db',
+        'USER': 'my_user',
+        'PASSWORD': 'my_password',
+        'HOST': 'postgresql',
         'PORT': 5432,
     }
 }
