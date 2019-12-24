@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'my_openshift.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+#TODO Hardcoded credentials lead to increased security risk !
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
