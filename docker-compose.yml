@@ -1,8 +1,12 @@
 version: '3'
 
 services:
-  #db:
-  #  image: postgres
+  postgresql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "my_password"
+      POSTGRES_USER: "my_user"
+      POSTGRES_DB: "db"
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -10,5 +14,5 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-    #depends_on:
-    # - db
+    depends_on:
+     - postgresql
