@@ -23,5 +23,5 @@ with open("privateKey.pem", "w+") as f:
 keyfile = 'privateKey.pem'
 certfile = 'publicCert.pem'
 
-bind = '0.0.0.0:80'
+bind = '0.0.0.0:8080'
 workers = 3
