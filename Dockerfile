@@ -6,5 +6,5 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
-EXPOSE 8000
+EXPOSE 8080
 CMD gunicorn -c gconfig.py --log-file=- my_openshift.wsgi:application
