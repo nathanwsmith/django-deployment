@@ -18,3 +18,6 @@ Namespace:			            openshift
 Namespace:			            myproject-mnv
 
 4. Edit routes for 2 applications (django and NGINX) as in attached files
+5. Do not forget to change user and password in /admin; 
+Default user is admin
+Default password is password
