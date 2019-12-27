@@ -7,5 +7,4 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 EXPOSE 8080
-#CMD gunicorn -c gconfig.py --log-file=- my_openshift.wsgi:application
 ENTRYPOINT ["sh", "entrypoint.sh"]
