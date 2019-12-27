@@ -1,0 +1,46 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: my-openshift-git
+  namespace: mnv-my-project
+  selfLink: >-
+    /apis/route.openshift.io/v1/namespaces/mnv-my-project/routes/my-openshift-git
+  uid: 44d3918b-26f9-11ea-89ad-0a580a810021
+  resourceVersion: '141075461'
+  creationTimestamp: '2019-12-25T09:31:03Z'
+  labels:
+    app: my-openshift-git
+    app.kubernetes.io/component: my-openshift-git
+    app.kubernetes.io/instance: my-openshift-git
+    app.kubernetes.io/name: python
+    app.kubernetes.io/part-of: my-openshift-git-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: '3.6'
+  annotations:
+    app.openshift.io/connects-to: 'postgresql,nginx-openshift-git'
+    app.openshift.io/vcs-ref: master
+    app.openshift.io/vcs-uri: 'https://github.com/nedialkom/my-openshift.git'
+    openshift.io/host.generated: 'true'
+spec:
+  host: my-openshift-git-mnv-my-project.apps.us-west-1.starter.openshift-online.com
+  subdomain: ''
+  to:
+    kind: Service
+    name: nginx-openshift-git
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        my-openshift-git-mnv-my-project.apps.us-west-1.starter.openshift-online.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2019-12-25T09:31:03Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps.us-west-1.starter.openshift-online.com
