@@ -124,4 +124,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 CSRF_COOKIE_SECURE=False
-CSRF_COOKIE_DOMAIN = '127.0.0.1'
+CSRF_COOKIE_DOMAIN = 'https://my-openshift-git-mnv-my-project.apps.us-west-1.starter.openshift-online.com'
