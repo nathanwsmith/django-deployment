@@ -9,11 +9,11 @@ services:
       POSTGRES_DB: "db"
   web:
     build: .
-    command: gunicorn -c gconfig.py --log-file=- my_openshift.wsgi:application
+    #command: gunicorn -c gconfig.py --log-file=- my_openshift.wsgi:application
     volumes:
       - .:/code
     ports:
-      - 443:80
+      - 8080:8080
     depends_on:
      - postgresql
 volumes:
