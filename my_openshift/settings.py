@@ -123,5 +123,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-CSRF_COOKIE_SECURE=False
-CSRF_COOKIE_DOMAIN = 'https://my-openshift-git-mnv-my-project.apps.us-west-1.starter.openshift-online.com'
