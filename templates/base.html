@@ -6,15 +6,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="My bank application">
       <meta name="author" content="Nedialko Mihaylov">
-      <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}img/favicon.ico"/>
+      <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico'%}"/>
 
       <title>{% block title %}Base template{% endblock title %}</title>
 
       <!-- Bootstrap core CSS -->
-      <link href="{{ STATIC_URL }}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
       <!-- Custom fonts for this template -->
-      <link href="{{ STATIC_URL }}vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-      <link href="{{ STATIC_URL }}vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+      <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+      <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css'%}" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
       <!-- Custom styles for this template -->
 
@@ -27,7 +27,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <a class="navbar-brand" href="#">
-          <img src="{{ STATIC_URL }}img/myBank.png" height="35" width="45" alt="Logo">
+          <img src="{% static 'img/myBank.png'%}" height="35" width="45" alt="Logo">
       </a>
       <a class="navbar-brand" href="#" >Welcome in My Bank</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,9 +127,9 @@
         </div>
       </footer>
     <!-- Bootstrap core JavaScript -->
-    <script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
     {% block custom_js %}
 
     {% endblock custom_js %}

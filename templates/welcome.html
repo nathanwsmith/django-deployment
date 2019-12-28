@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block custom_css %}
-    <link href="{{ STATIC_URL }}css/landing-page.css" rel="stylesheet">
+    <link href="{% static 'css/landing-page.css' %}" rel="stylesheet">
 {% endblock custom_css %}
 {% block title %}Home{% endblock title %}
 {% block nav-style %}mkt-nav{% endblock nav-style %}
@@ -71,7 +72,7 @@
     <div class="container-fluid p-0">
       <div class="row no-gutters">
 
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ STATIC_URL }}img/bg-showcase-2.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url({% static 'img/bg-showcase-2.jpg' %});"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Easy to Setup</h2>
           <p class="lead mb-0">Our superior customer journey guarantees you the easiest and most secure eay to all integrate
@@ -81,7 +82,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url('{{ STATIC_URL }}img/bg-showcase-1.jpg');"></div>
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url({% static 'img/bg-showcase-1.jpg' %});"></div>
         <div class="col-lg-6 my-auto showcase-text">
           <h2>Easy to Access</h2>
           <p class="lead mb-0">You can bank with all your banks via your Mobile, Web, Amazon Alexa, Google Assistant
@@ -90,7 +91,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{ STATIC_URL }}img/bg-showcase-3.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url({% static 'img/bg-showcase-3.jpg' %});"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Easy to Use</h2>
             <p class="lead mb-0">Playing games is easy!</p>
@@ -107,21 +108,21 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid rounded-circle mb-3" src="{{ STATIC_URL }}img/testimonials-1.jpg" alt="">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-1.jpg' %}" alt="">
             <h5>Margaret E.</h5>
             <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid rounded-circle mb-3" src="{{ STATIC_URL }}img/testimonials-2.jpg" alt="">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-2.jpg' %}" alt="">
             <h5>Fred S.</h5>
             <p class="font-weight-light mb-0">"My Bank is amazing. I'm using it daily."</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-            <img class="img-fluid rounded-circle mb-3" src="{{ STATIC_URL }}img/testimonials-3.jpg" alt="">
+            <img class="img-fluid rounded-circle mb-3" src="{% static 'img/testimonials-3.jpg' %}" alt="">
             <h5>Sarah W.</h5>
             <p class="font-weight-light mb-0">"Thanks so much for this fantastic app!"</p>
           </div>
