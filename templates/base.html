@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="My bank application">
+      <meta name="author" content="Nedialko Mihaylov">
+      <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}img/favicon.ico"/>
+
+      <title>{% block title %}Base template{% endblock title %}</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="{{ STATIC_URL }}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom fonts for this template -->
+      <link href="{{ STATIC_URL }}vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+      <link href="{{ STATIC_URL }}vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+      <!-- Custom styles for this template -->
+
+      {% block custom_css %}
+
+      {% endblock custom_css %}
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+          <img src="{{ STATIC_URL }}img/myBank.png" height="35" width="45" alt="Logo">
+      </a>
+      <a class="navbar-brand" href="#" >Welcome in My Bank</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Banks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Accounts</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">User<span class="sr-only">(current)</span></a>
+              </li>
+          {% else %}
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Banks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Accounts</a>
+              </li>
+              <li class="nav-item disabled">
+                <a class="nav-link disabled" href="#">User<span class="sr-only">(current)</span></a>
+              </li>
+          {% endif %}
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="#">Contacts</a>
+              <a class="dropdown-item" href="#">About us ..</a>
+              <a class="dropdown-item" href="#">Terms of Use</a>
+              <a class="dropdown-item" href="#">Privacy Policy</a>
+              <a class="dropdown-item" href="https://eur-lex.europa.eu/legal-content/BG/TXT/?qid=1563972667284&uri=CELEX%3A32016R0679">Directives: GDPR</a>
+              <a class="dropdown-item" href="https://eur-lex.europa.eu/legal-content/BG/TXT/?uri=celex%3A32015L2366">Directives: PSD II</a>
+            </div>
+          </li>
+        </ul>
+      {% if user.is_authenticated %}
+          <a class="btn btn-primary" href="#">Log out</a>
+      {% else %}
+          <a class="btn btn-primary" href="#">Sign In</a>
+      {% endif %}
+      </div>
+    </nav>
+    <!-- Page body -->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <hr class="my-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+              <ul class="list-inline mb-2">
+                <li class="list-inline-item">
+                  <a href="#">About</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Contact</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Terms of Use</a>
+                </li>
+                <li class="list-inline-item">&sdot;</li>
+                <li class="list-inline-item">
+                  <a href="#">Privacy Policy</a>
+                </li>
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">&copy; Nedialko Mihaylov 2019. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-facebook fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item mr-3">
+                  <a href="#">
+                    <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-instagram fa-2x fa-fw"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.min.js"></script>
+    {% block custom_js %}
+
+    {% endblock custom_js %}
+</body>
+</html>

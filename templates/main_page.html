@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block custom_css %}
+    <link href="{{ STATIC_URL }}css/landing-page-loged-in.css" rel="stylesheet">
+{% endblock custom_css %}
+{% block title %}Home{% endblock title %}
+{% block nav-style %}mkt-nav{% endblock nav-style %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <!-- First column - Banks and Accounts -->
+      <div class="col-lg-3">
+        <h4 class="my-4">Eligible Banks</h4>
+        <div class="list-group">
+            <a href="#" class="list-group-item active">All banks</a>
+            {% for bank in banks %}
+                <a href="#" class="list-group-item">{{ bank }}</a>
+            {% endfor %}
+        </div>
+        <p></p>
+        <a href="#" class="btn btn-success">Add new bank</a>
+        <p></p>
+        <h4 class="my-4">Accounts</h4>
+        <div class="list-group">
+              <a href="#" class="list-group-item active">All accounts</a>
+              {% for account in accounts %}
+                  <a href="#" class="list-group-item">{{ account }}</a>
+              {% endfor %}
+        </div>
+      </div>
+      <!-- Second column - Consents -->
+      <div class="col-lg-9">
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+              <h3>
+                  Consents
+                  <a href="{% url 'consent' %}" class="btn btn-success float-right">New consent</a>
+              </h3>
+          </div>
+          <div class="card-body">
+              {% for consent in consents %}
+                  {% if consent.3 == "valid" %}
+                    <h5 class = "last-status-valid">
+                        Bank: {{ consent.0 }}, Consent ID: {{ consent.5 }}, {{ consent.3 }}
+                    </h5>
+                  {% elif consent.3 == "expired" %}
+                    <h5 class = "last-status-expired">
+                        Bank: {{ consent.0 }}, Consent ID: {{ consent.5 }}, {{ consent.3 }}
+                    </h5>
+                  {% elif consent.3 == "broken" %}
+                    <h5 class = "last-status-broken">
+                        Bank: {{ consent.0 }}, Consent ID: {{ consent.5 }}, {{ consent.3 }}
+                    </h5>
+                  {% endif %}
+                  <!-- Error message -->
+                  {% if message is not None and consent.6 == id%}
+                        <p>{{ message }}</p>
+                        <!---- Bootstrap modal PopUp --->
+                        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Error
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    {{ message }}
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                        <script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
+                        <script type="text/javascript">
+                            $(window).on('load', function(){
+                                $('#myModal').modal('show');
+                            });
+                        </script>
+                        <!---- End PopUp ---->
+                  {% endif %}
+                  <p><b>Json:</b>{{ consent.1 }}</p>
+                  <small class="text-muted">
+                      Consent issued on: {{ consent.2 }}                      &nbsp;
+                      <a href="{% url 'delete_consent' consent.6 %}" class="btn btn-danger float-right mr-2">Delete consent</a>
+                      <a href="{% url 'check_validity' consent.6 %}" class="btn btn-warning float-right mr-2">Check validity</a>
+                  </small>
+                  <hr>
+              {% endfor %}
+          </div>
+        </div>
+        <!-- /.card -->
+        <div class="card mt-4">
+          <div class="card-body">
+            <h3 class="card-title">Product Name</h3>
+            <h4>$24.99</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,6 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
+def main(request):
+    if request.user.is_authenticated:
+        return redirect('main_page')
+    else:
+        return render(request, 'welcome.html')
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the main page.")
+@login_required
+def main_page(request):
+    return render(request, 'main_page.html')

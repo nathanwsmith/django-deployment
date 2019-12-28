@@ -1,0 +1,16 @@
+.row {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.last-status-expired {
+    color: #ffc107;
+}
+
+.last-status-valid {
+    color: #28a745;
+}
+
+.last-status-broken {
+    color: #dc3545;
+}
