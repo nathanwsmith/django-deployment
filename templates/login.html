@@ -19,16 +19,25 @@
               <h3 class="login-heading mb-4">Welcome back!</h3>
               <form id="login-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
+                {% if email %}
+                <div class="form-label-group">
+                  <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" value="{{email}}" required >
+                  <label for="inputEmail">Email address</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required autofocus>
+                  <label for="inputPassword">Password</label>
+                </div>
+                {% else %}
                 <div class="form-label-group">
                   <input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="inputEmail">Email address</label>
+                  <label for="inputEmail">Email address</label>
                 </div>
-
                 <div class="form-label-group">
                   <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
                   <label for="inputPassword">Password</label>
                 </div>
-
+                {% endif %}
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember_me">
                   <label class="custom-control-label" for="customCheck1">Remember me</label>
