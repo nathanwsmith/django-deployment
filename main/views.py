@@ -1,9 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
+from .models import Account, Bank, Currency
+from .forms import AccountForm
 
 def welcome(request):
     if request.user.is_authenticated: #loged in user
@@ -79,3 +81,42 @@ def signup(request):
         else: #filled in email
             context = {'email':email}
             return render(request, 'signup.html', context=context)
+
+@login_required
+def accounts(request):
+    accounts = Account.objects.filter(user=request.user)
+    context = {'accounts':accounts}
+    return render(request, 'accounts.html', context=context)
+
+@login_required
+def account_edit(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    if request.method == "POST":
+        form = AccountForm(request.POST, instance=account)
+        if form.is_valid():
+            account = form.save(commit=False)
+            account.user = request.user
+            account.save()
+            return redirect('accounts')
+    else:
+        form = AccountForm(instance=account)
+    return render(request, 'account_edit.html', {'form': form, 'account':account})
+
+@login_required
+def account_new(request):
+    if request.method == "POST":
+        form = AccountForm(request.POST)
+        if form.is_valid():
+            account = form.save(commit=False)
+            account.user = request.user
+            account.save()
+            return redirect('accounts')
+    else:
+        form = AccountForm()
+    return render(request, 'account_edit.html', {'form': form})
+
+@login_required
+def account_delete(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    account.delete()
+    return redirect('accounts')
