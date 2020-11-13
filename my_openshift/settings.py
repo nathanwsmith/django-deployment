@@ -19,8 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'adsb',
-]
+    'my_openshift',
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
