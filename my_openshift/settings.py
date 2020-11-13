@@ -32,7 +32,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'adsb.urls'
+ROOT_URLCONF = 'my_openshift.urls'
 
 TEMPLATES = [
     {
