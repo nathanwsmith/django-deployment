@@ -6,10 +6,12 @@ Deployment:
 3. Deploy PostgreSQL DB from Databases
 
 Database settings:
-PostgreSQL Database Name: 	    db
-PostgreSQL Connection Password: my_password
-PostgreSQL Connection Username: my_user
-Database Service Name: 		    postgresql
-Namespace:			            openshift
-Namespace:			            myproject-mnv
+PostgreSQL Database Name: 	    
+PostgreSQL Connection Password: 
+PostgreSQL Connection Username: 
+Database Service Name: 		    
 
+Environment Variables:
+
+Name: OPENSHIFT_PYTHON_DIR Value: /opt/app-root/lib/python
+Name: OPENSHIFT_REPO_DIR   Value: /opt/app-root/src
