@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'my_openshift',
+    'adsb',
 ]
 
 MIDDLEWARE = [
@@ -32,7 +32,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'my_openshift.urls'
+ROOT_URLCONF = 'adsb.urls'
 
 TEMPLATES = [
     {
@@ -56,10 +56,10 @@ WSGI_APPLICATION = 'my_openshift.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db',
-        'USER': 'my_user',
-        'PASSWORD': 'my_password',
-        'HOST': 'postgresql',
+        'NAME': 'adsb_data',
+        'USER': 'futurecapability',
+        'PASSWORD': 'BAECommTech1',
+        'HOST': '172.21.190.154',
         'PORT': 5432,
     }
 }

@@ -1,8 +1,6 @@
 from django.contrib import admin
-from .models import Bank, Account, Currency
+from .models import Adsb
 
 # Register your models here.
-admin.site.register(Bank)
-admin.site.register(Currency)
-admin.site.register(Account)
+admin.site.register(Adsb)
 
