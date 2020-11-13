@@ -13,5 +13,7 @@ Database Service Name:
 
 Environment Variables:
 
-Name: OPENSHIFT_PYTHON_DIR Value: /opt/app-root/lib/python
-Name: OPENSHIFT_REPO_DIR   Value: /opt/app-root/src
+Name: OPENSHIFT_PYTHON_DIR 
+Value: /opt/app-root/lib/python
+Name: OPENSHIFT_REPO_DIR   
+Value: /opt/app-root/src
